@@ -64,3 +64,55 @@ if ! grep -q "plugins=(.*zsh-autosuggestions.*zsh-syntax-highlighting.*)" "$ZSHR
 fi
 
 echo "Installation and setup completed! Restart your terminal or run 'zsh' to use Zsh."
+
+
+
+## upgrading the system 
+sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt autocleane -y
+
+
+## clonning the dotfiles
+if [ ! -d "$HOME/.config/lf" ]; then
+    echo "clonning dotfiles..."
+    git clone https://github.com/kareem3atef/dotfiles $HOME/.config/
+    cp -R $HOME/.config/dotfiles/* $HOME/.config/
+else
+    echo "dotfiles is cloned ..."
+fi
+
+## installing brew
+if [ ! -d "/home/linuxbrew" ]; then
+    echo "installing brew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zshrc
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+else
+    echo "brew is installed ..."
+fi
+
+## installing gdrive
+if ! command -v gdrive >/dev/null 2>&1; then
+    echo "Installing gdrive..."
+    brew install gdrive
+else
+    echo "gdrive is already installed."
+fi
+
+## installing lf
+if ! command -v lf >/dev/null 2>&1; then
+    echo "Installing lf..."
+    brew install lf
+else
+    echo "lf is already installed."
+fi
+
+
+## installing gdown
+if ! command -v gdown >/dev/null 2>&1; then
+    echo "Installing gdown..."
+    pip3 install gdown
+else
+    echo "gdown is already installed."
+fi
+
+
