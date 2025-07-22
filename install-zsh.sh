@@ -68,7 +68,7 @@ echo "Installation and setup completed! Restart your terminal or run 'zsh' to us
 
 
 ## upgrading the system 
-sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt autocleane -y
+sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y
 
 
 ## clonning the dotfiles
