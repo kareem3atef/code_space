@@ -74,8 +74,8 @@ sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo ap
 ## clonning the dotfiles
 if [ ! -d "$HOME/.config/lf/lfrc" ]; then
     echo "clonning dotfiles..."
-    git clone https://github.com/kareem3atef/dotfiles $HOME/.config/
-    cp -R $HOME/.config/dotfiles/* $HOME/.config/
+    git clone https://github.com/kareem3atef/dotfiles $HOME/dotfiles
+    cp -R $HOME/dotfiles/* $HOME/.config/
 else
     echo "dotfiles is cloned ..."
 fi
